@@ -9,6 +9,7 @@ export const Card = styled.div<PropsSemLegendaEContador>`
   border: 1px solid ${props => (props.ativo ? '#1e90ff' : '#a1a1a1')};
   background-color: ${props => (props.ativo ? '#fff' : '#fcfcfc')};
   border-radius: 8px;
+  cursor: pointer;
 `;
 export const Contador = styled.div`
   font-weight: bold;

@@ -2,9 +2,9 @@ import * as enums from '../utils/enums/Tarefa';
 
 class Tarefa {
   titulo: string;
-  proridade: enums.prioridade;
+  prioridade: enums.prioridade;
   status: enums.Status;
-  decricao: string;
+  descricao: string;
   id: number;
 
   constructor(
@@ -15,9 +15,9 @@ class Tarefa {
     id: number
   ) {
     this.titulo = titulo;
-    this.proridade = prioridade;
+    this.prioridade = prioridade;
     this.status = status;
-    this.decricao = decricao;
+    this.descricao = decricao;
     this.id = id;
   }
 }
