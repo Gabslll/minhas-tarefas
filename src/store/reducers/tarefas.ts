@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Tarefa from '../../models/Tarefa';
 import * as enums from '../../utils/enums/Tarefa';
-import { Titulo } from '../../components/Tarefa/style';
 
 type TArefasState = {
   itens: Tarefa[];
@@ -13,7 +12,7 @@ const initialState: TArefasState = {
       id: 1,
       descricao: 'Estudar JavaScript revendo o exercício do módulo 7',
       prioridade: enums.prioridade.IMPORTANTE,
-      status: enums.Status.PENDENTE,
+      status: enums.Status.CONLUIDA,
       titulo: 'Estudar JavaScript',
     },
     {
@@ -40,9 +39,18 @@ const tarefasSlice = createSlice({
     remover: (state, action: PayloadAction<number>) => {
       state.itens = state.itens.filter(tarefa => tarefa.id !== action.payload);
     },
+    editar: (state, action: PayloadAction<Tarefa>) => {
+      const indexDaTarefa = state.itens.findIndex(
+        t => t.id === action.payload.id
+      );
+
+      if (indexDaTarefa >= 0) {
+        state.itens[indexDaTarefa] = action.payload;
+      }
+    },
   },
 });
 
-export const { remover } = tarefasSlice.actions;
+export const { remover, editar } = tarefasSlice.actions;
 
 export default tarefasSlice.reducer;
